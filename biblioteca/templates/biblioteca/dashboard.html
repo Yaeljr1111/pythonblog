@@ -1,0 +1,37 @@
+{% extends 'biblioteca/base.html' %}
+
+{% block content %}
+<h1 class="mb-4">📊 Dashboard</h1>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3 p-3">
+            <h5>Total Libros</h5>
+            <h2>{{ total_libros }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-success mb-3 p-3">
+            <h5>Total Autores</h5>
+            <h2>{{ total_autores }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-warning mb-3 p-3">
+            <h5>Préstamos Activos</h5>
+            <h2>{{ prestamos_activos }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-dark mb-3 p-3">
+            <h5>Usuarios</h5>
+            <h2>{{ total_usuarios }}</h2>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

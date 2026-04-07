@@ -1,0 +1,29 @@
+{% extends 'biblioteca/base.html' %}
+
+{% block content %}
+<h1>Buscar libros</h1>
+
+<form method="get">
+    <input type="text" name="q" placeholder="Buscar..." value="{{ query }}">
+    <button type="submit">Buscar</button>
+</form>
+
+<hr>
+
+{% if query %}
+    <h3>Resultados para "{{ query }}"</h3>
+
+    <ul>
+        {% for libro in resultados %}
+            <li>
+                <a href="/libro/{{ libro.id }}/">
+                    {{ libro.titulo }} - {{ libro.autor.nombre }}
+                </a>
+            </li>
+        {% empty %}
+            <p>No se encontraron resultados</p>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

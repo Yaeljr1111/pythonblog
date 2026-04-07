@@ -1,0 +1,36 @@
+{% extends 'biblioteca/base.html' %}
+
+{% block content %}
+<h1>Filtrar libros</h1>
+
+<form method="get">
+    <select name="genero">
+        <option value="">-- Género --</option>
+        <option value="ficcion">Ficción</option>
+        <option value="ciencia">Ciencia</option>
+        <option value="historia">Historia</option>
+    </select>
+
+    <label>
+        <input type="checkbox" name="disponible" value="true">
+        Solo disponibles
+    </label>
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<hr>
+
+<ul>
+    {% for libro in libros %}
+        <li>
+            <a href="/libro/{{ libro.id }}/">
+                {{ libro.titulo }} - {{ libro.autor.nombre }}
+            </a>
+        </li>
+    {% empty %}
+        <p>No hay resultados</p>
+    {% endfor %}
+</ul>
+
+{% endblock %}

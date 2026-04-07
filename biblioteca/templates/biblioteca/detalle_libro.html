@@ -1,0 +1,19 @@
+{% extends 'biblioteca/base.html' %}
+
+{% block content %}
+<div class="card shadow p-4">
+    <h2>{{ libro.titulo }}</h2>
+
+    <p><strong>Autor:</strong> {{ libro.autor.nombre }}</p>
+    <p><strong>Género:</strong> {{ libro.genero }}</p>
+    <p><strong>Páginas:</strong> {{ libro.paginas }}</p>
+    <p>{{ libro.descripcion }}</p>
+
+    {% if libro.disponible %}
+        <span class="badge bg-success">Disponible</span><br><br>
+        <a href="/prestamo/{{ libro.id }}/" class="btn btn-success">Solicitar préstamo</a>
+    {% else %}
+        <span class="badge bg-danger">No disponible</span>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+web: gunicorn bibliotech_project.wsgi
